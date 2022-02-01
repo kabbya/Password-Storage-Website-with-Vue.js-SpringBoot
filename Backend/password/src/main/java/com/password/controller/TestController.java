@@ -56,5 +56,18 @@ public class TestController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 	
+	// create new password
+	
+	@PostMapping("/passwords/{id}")
+	@PreAuthorize("hasRole('USER')")
+	public ResponseEntity<Password> createPassword(@PathVariable("id") long id, @RequestBody Password password) {
+		System.out.println("Create");
+		User user = userRepository.getById(id);
+		password.setUser(user);
+		
+		return new ResponseEntity<>( passwordRepository.save(password), HttpStatus.CREATED );
+	}
+	
+	
 	
 }
