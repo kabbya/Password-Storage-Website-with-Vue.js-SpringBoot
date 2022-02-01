@@ -42,5 +42,19 @@ public class TestController {
 		return "Public Content.";
 	}
 	
+	// get all password by id
+	
+	@GetMapping("/passwords/user/{id}")
+	@PreAuthorize("hasRole('USER')")
+	public ResponseEntity<List<Password>> getAllPasswords(@PathVariable("id") long id) {
+		System.out.println("Get All");
+		List<Password> list = passwordRepository.findPasswordByUser(id);
+		
+		if (list.size() == 0)
+	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+	
 	
 }
