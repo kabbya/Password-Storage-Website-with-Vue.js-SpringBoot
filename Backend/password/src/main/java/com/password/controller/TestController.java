@@ -104,5 +104,16 @@ public class TestController {
 			}
 	  }
 	
-
+	// delete 
+	
+	@DeleteMapping("/passwords/{id}")
+	@PreAuthorize("hasRole('USER')")
+	public ResponseEntity<HttpStatus> deletePassword(@PathVariable("id") long id) {
+		try {
+	      passwordRepository.deleteById(id);
+	      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	    } catch (Exception e) {
+	      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	  }
 }
