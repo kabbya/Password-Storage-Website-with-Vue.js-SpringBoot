@@ -69,5 +69,22 @@ public class TestController {
 	}
 	
 	
+	// get password id
+	
+	@GetMapping("/passwords/{id}")
+	@PreAuthorize("hasRole('USER')")
+	public ResponseEntity<Password> getPasswordById(@PathVariable("id") long id, Principal principal){
+		System.out.println("Get Password");
+		Optional<Password> passwordOptional = passwordRepository.findById(id);
+		Password password = passwordOptional.get();
+		String userName =   principal.getName();
+		
+		if (passwordOptional.isPresent() && userName.equals(password.getUser().getUsername())) 
+			return new ResponseEntity<>(passwordOptional.get(), HttpStatus.OK);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		    
+	}
+	
 	
 }
