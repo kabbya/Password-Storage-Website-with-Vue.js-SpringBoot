@@ -1,7 +1,8 @@
 <template>
   <div class="row justify-content-center align-items-center mt-4">
+    <h1> <center> Login </center> </h1>
+      
     <div class="card card-container col-md-6">
-    
       <Form @submit="handleLogin" :validation-schema="schema">
         <div class="form-group col-md-12">
           <label for="username">Username</label>

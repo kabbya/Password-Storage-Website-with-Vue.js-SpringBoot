@@ -39,6 +39,10 @@ class UserService {
   deletePassword(id) {
     return axios.delete(API_URL + `passwords/${id}`, { headers: authHeader() });
   }
+
+  findBySiteName(id, siteName){
+    return axios.get(API_URL + `passwords/user/${id}?siteName=${siteName}`, { headers: authHeader() });
+  }
 }
 
 export default new UserService();

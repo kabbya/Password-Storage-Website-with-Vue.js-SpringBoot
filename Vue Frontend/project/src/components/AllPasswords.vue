@@ -122,14 +122,23 @@
       },
       
       searchSiteName() {
-        
+        console.log(this.currentUser.id);
+        console.log(this.siteName);
+        UserService.findBySiteName(this.currentUser.id, this.siteName)
+        .then(response => {
+          this.passwords = response.data;
+          this.setActivePassword(null);
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
       },
 
       copy() {
         this.$refs.passwordInput.focus();
         document.execCommand('copy');
-    }
-  
+    },  
   
     },
     mounted() {

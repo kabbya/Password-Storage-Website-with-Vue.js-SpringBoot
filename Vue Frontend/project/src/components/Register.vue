@@ -1,5 +1,7 @@
 <template>
   <div class="row justify-content-center align-items-center mt-4">
+     <h1> <center> Registration </center> </h1>
+   
     <div class="card card-container  col-md-6">
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
