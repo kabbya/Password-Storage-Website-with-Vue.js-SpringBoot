@@ -1,5 +1,5 @@
 <template>
-  <div class="submit-form">
+  <div class="submit-form update-form">
     <div v-if="!submitted">
       <div class="form-group">
         <label for="siteName">Name of the Site</label>
@@ -12,7 +12,19 @@
               name="siteName"
             />
       </div>
-      
+    
+
+      <div class="form-group">
+        <label for="siteUserName">User Name</label>
+            <input
+              class="form-control"
+              id="siteUserName"
+              required
+              v-model="password.siteUserName"
+              name="siteUserName"
+            />
+      </div>
+
       <div class="form-group">
         <label for="sitePassword">Password</label>
             <input
@@ -22,17 +34,6 @@
               required
               v-model="password.sitePassword"
               name="sitePassword"
-            />
-      </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-            <input
-              class="form-control"
-              id="description"
-              required
-              v-model="password.description"
-              name="description"
             />
       </div>
 
@@ -67,7 +68,7 @@ export default {
         pId: null,
         siteName:"",
         sitePassword: "",
-        description: "",
+        siteUserName: "",
         published: false,
         user: null,
       },
@@ -79,7 +80,7 @@ export default {
       var data = {
         siteName: this.password.siteName,
         sitePassword: this.password.sitePassword,
-        description: this.password.description
+        siteUserName: this.password.siteUserName
       };
 
       UserService.createPassword(data, this.currentUser.id)
@@ -104,5 +105,10 @@ export default {
 .submit-form {
   max-width: 300px;
   margin: auto;
+}
+
+.update-form{
+  background-color: #FDFDFD;
+   padding: 1rem;
 }
 </style>

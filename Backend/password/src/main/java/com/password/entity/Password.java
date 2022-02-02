@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -20,9 +21,9 @@ public class Password {
 	private long pId;
 	private String siteName;
 	private String sitePassword;
-	private String description;
-	private boolean published;
-
+	@Email
+	private String siteUserName;
+	
 	@ManyToOne
 	private User user;
 
@@ -55,22 +56,15 @@ public class Password {
 		this.sitePassword = sitePassword;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public boolean isPublished() {
-		return published;
-	}
-
-	public void setPublished(boolean published) {
-		this.published = published;
-	}
 	
+	public String getSiteUserName() {
+		return siteUserName;
+	}
+
+	public void setSiteUserName(String siteUserName) {
+		this.siteUserName = siteUserName;
+	}
+
 	@JsonBackReference
 	public User getUser() {
 		return user;

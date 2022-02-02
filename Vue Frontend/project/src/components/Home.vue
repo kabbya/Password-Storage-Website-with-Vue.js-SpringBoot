@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-home">
     <header class="jumbotron">
       <h3>{{ content }}</h3>
     </header>
@@ -33,3 +33,9 @@ export default {
   },
 };
 </script>
+<style>
+  .container-home{
+    color: white;
+  }
+
+</style>

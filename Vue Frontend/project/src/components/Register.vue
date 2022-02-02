@@ -1,8 +1,9 @@
 <template>
   <div class="row justify-content-center align-items-center mt-4">
-     <h1> <center> Registration </center> </h1>
+    
+    <div class="card card-container registration-card  col-md-6">
+       <h1> <center> Registration </center> </h1>
    
-    <div class="card card-container  col-md-6">
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
           <div class="form-group  col-md-12">
@@ -119,6 +120,8 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style>
+  .registration-card{
+    padding: 1rem;
+  }
 </style>

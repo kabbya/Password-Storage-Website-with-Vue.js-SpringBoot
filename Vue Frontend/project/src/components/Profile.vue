@@ -38,3 +38,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .container{
+    background-color: rgb(255,255,255,.70);
+    padding: 2rem;
+    margin-top: 5rem;
+  }
+</style>

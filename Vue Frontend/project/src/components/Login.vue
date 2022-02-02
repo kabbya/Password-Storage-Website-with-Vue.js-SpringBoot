@@ -1,8 +1,9 @@
 <template>
   <div class="row justify-content-center align-items-center mt-4">
-    <h1> <center> Login </center> </h1>
       
-    <div class="card card-container col-md-6">
+    <div class="card card-container login-card col-md-6">
+      <h1> <center> Login </center> </h1>
+    
       <Form @submit="handleLogin" :validation-schema="schema">
         <div class="form-group col-md-12">
           <label for="username">Username</label>
@@ -23,10 +24,7 @@
             ></span>
             <span>Login</span>
           </button>
-          <p class="forgot-password text-right mt-4">
-              <router-link to="forgot">Forgot password?</router-link>
-          </p>
-
+         
         </div>
 
         <div class="form-group">
@@ -95,6 +93,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+  .login-card{
+    padding: 1rem;
+  }
 
 </style>

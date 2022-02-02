@@ -4,36 +4,38 @@
     
     <form>
       <div class="form-group">
-        <label for="Site Name">SiteName</label>
+        <label for="Site Name">Name of the Site</label>
         <input type="text" class="form-control" id="SiteName"
           v-model="currentPassword.siteName"
         />
       </div>
       <div class="form-group">
-        <label for="Site Password">SitePassword</label>
-        <input type="text" class="form-control" id="SitePassword"
-          v-model="currentPassword.sitePassword"
+        <label for="siteUserName">User name</label>
+        <input type="text" class="form-control" id="siteUserName"
+          v-model="currentPassword.siteUserName"
         />
       </div>
       <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description"
-          v-model="currentPassword.description"
+        <label for="Site Password">Password</label>
+        <input type="text" class="form-control" id="SitePassword"
+          v-model="currentPassword.sitePassword"
         />
       </div>
     </form>
 
     <div class="mt-4">
-        <button class="bg-danger mr-2" @click="deletePassword">
+        <button class="btn btn-danger mr-2 mb-3" @click="deletePassword">
             Delete
         </button>
 
-        <button type="submit" class="bg-primary ms-2" @click="updatePassword">
+        <button type="submit" class="btn btn-primary ms-2 mb-3" @click="updatePassword">
             Update
         </button>
     </div>
 
-    <p>{{ message }}</p>
+    <p>
+      <strong> {{ message }} </strong>
+    </p>
   </div>
 
   <div v-else>

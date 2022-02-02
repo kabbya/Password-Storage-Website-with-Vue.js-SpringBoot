@@ -14,7 +14,7 @@
           <router-link to="/passwords" class="nav-link"> <font-awesome-icon icon="home" /> Home  |</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/add" class="nav-link">Add Password  | </router-link>
+          <router-link to="/add" class="nav-link">Add Password | </router-link>
         </li>
          <li class="nav-item">
           <router-link to="/profile" class="nav-link">
@@ -76,3 +76,19 @@ export default {
   
 };
 </script>
+
+<style>
+ 
+  .navbar-dark .navbar-nav .nav-link {
+    color: #FDFDFD !important;
+  }
+  .navbar-dark .navbar-brand {
+    color: #FDFDFD !important;
+    padding-left: 2rem;
+  }
+
+  .navbar-nav{
+    padding-right: 2rem;
+  }
+
+</style>

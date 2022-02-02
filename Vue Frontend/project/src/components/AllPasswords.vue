@@ -13,7 +13,7 @@
             v-model="siteName"
           />
           <div class="input-group-append">
-            <button class="btn  btn-outline-secondary" type="button" @click="searchSiteName">
+            <button class="btn btn-search" type="button" @click="searchSiteName">
               Search
             </button>
           </div>
@@ -23,7 +23,7 @@
       <!-- End Search Functionality using Site Name -->
   
       <div class="col-md-6">
-        <h4>Passwords List</h4>
+        <h4 class="subtitle">Passwords List</h4>
         <ul class="list-group">
           <li class="list-group-item"
             v-for="(password, index) in passwords"
@@ -39,7 +39,7 @@
       <!-- Show Password on Click -->
     
       <div class="col-md-6">
-        <div v-if="currentPassword">
+        <div class="password-container" v-if="currentPassword">
           <h4>Password</h4>
           <!-- <div>
             <label><strong>Site Id:</strong></label> {{ currentPassword.pId}}
@@ -48,7 +48,7 @@
             <label><strong>Site Name:</strong></label> {{ currentPassword.siteName }}
           </div>
            <div>
-            <label><strong>Description:</strong></label> {{ currentPassword.description }}
+            <label><strong>User Name:</strong></label> {{ currentPassword.siteUserName }}
           </div>
           
           <div>
@@ -62,7 +62,7 @@
           </div>
   
           <div class="btn-toolbar mt-3">
-           <button btn-sm @click="copy" >Copy Password</button>
+           <button class="btn btn-success" @click="copy" >Copy Password</button>
            <router-link :to="'/update/' + this.currentPassword.pId" class="btn btn-primary mx-3">Edit</router-link>
           </div>
         
@@ -153,9 +153,32 @@
       max-width: 750px;
       margin: auto;
     }
-    
+ 
     body{
-        background-color: lightgray;
+        background-image: url("../image/BG3.jpg");
+        background-size: cover;
     }
+
+    .password-container{
+        background-color: #fdfdfd;
+        padding: 2rem;
+        border-radius: 5px;
+        margin-top: 2rem;
+    }
+
+    .subtitle{
+        color: #FDFDFD;
+    }
+
+    .btn-search{
+        background-color: rgba(33,37,41,1)!important;
+        color: #FDFDFD;
+    }
+
+    .btn-search:hover {
+        color: #FDFDFD;
+    }
+
+    
    
   </style>
