@@ -29,7 +29,7 @@
         </li>
       </div>
 
-      <div v-if="!currentUser" class="navbar-nav ml-auto">
+      <div v-if="!currentUser" class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <router-link to="/register" class="nav-link">
             <font-awesome-icon icon="user-plus" /> Sign Up
