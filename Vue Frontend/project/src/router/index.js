@@ -4,6 +4,7 @@ import Login from "../components/Login.vue";
 import Register from "../components/Register.vue";
 
 const Profile = () => import("../components/Profile.vue")
+const AllPasswords = () => import("../components/AllPasswords.vue")
 
 const routes =  [
 
@@ -30,6 +31,13 @@ const routes =  [
     name: "profile",
     // lazy-loaded
     component: Profile,
+  },
+
+  {
+    path: "/passwords",
+    name: "all-passwords",
+    // lazy-loaded
+    component: AllPasswords,
   },
   
 ];
