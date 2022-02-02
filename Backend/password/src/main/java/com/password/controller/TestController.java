@@ -1,6 +1,7 @@
 package com.password.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.password.entity.Password;
@@ -46,14 +48,21 @@ public class TestController {
 	
 	@GetMapping("/passwords/user/{id}")
 	@PreAuthorize("hasRole('USER')")
-	public ResponseEntity<List<Password>> getAllPasswords(@PathVariable("id") long id) {
-		System.out.println("Get All");
-		List<Password> list = passwordRepository.findPasswordByUser(id);
+	public ResponseEntity<List<Password>> getAllPasswords(@PathVariable("id") long id, @RequestParam(required = false) String siteName) {
 		
+		List<Password> list = new ArrayList<Password>();
+		
+		if(siteName==null){			
+			list = passwordRepository.findPasswordByUser(id);	
+		}else {
+			list = passwordRepository.searchByTitleLike(id, siteName);
+		}
+
 		if (list.size() == 0)
 	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		
 		return new ResponseEntity<>(list, HttpStatus.OK);
+
 	}
 	
 	// create new password
@@ -61,7 +70,6 @@ public class TestController {
 	@PostMapping("/passwords/{id}")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Password> createPassword(@PathVariable("id") long id, @RequestBody Password password) {
-		System.out.println("Create");
 		User user = userRepository.getById(id);
 		password.setUser(user);
 		
@@ -74,7 +82,6 @@ public class TestController {
 	@GetMapping("/passwords/{id}")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Password> getPasswordById(@PathVariable("id") long id, Principal principal){
-		System.out.println("Get Password");
 		Optional<Password> passwordOptional = passwordRepository.findById(id);
 		Password password = passwordOptional.get();
 		String userName =   principal.getName();
@@ -91,10 +98,8 @@ public class TestController {
 	@PutMapping("/passwords/{uid}/{id}")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Password> updatePassword(@PathVariable("uid") long uid, @PathVariable("id") long id, @RequestBody Password password) {
-			System.out.println("Upate");
 			
 			Password targetedPassword = passwordRepository.findById(id).get();
-			System.out.println(targetedPassword.getpId());
 			if(targetedPassword.getUser().getId() == uid) {
 				User currentUser = userRepository.getById(uid);
 				password.setUser(currentUser);
