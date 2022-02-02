@@ -13,7 +13,7 @@
             v-model="siteName"
           />
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" @click="searchSiteName">
+            <button class="btn  btn-outline-secondary" type="button" @click="searchSiteName">
               Search
             </button>
           </div>
@@ -145,6 +145,9 @@
       max-width: 750px;
       margin: auto;
     }
-
+    
+    body{
+        background-color: lightgray;
+    }
    
   </style>

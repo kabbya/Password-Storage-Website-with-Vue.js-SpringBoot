@@ -5,6 +5,7 @@ import Register from "../components/Register.vue";
 
 const Profile = () => import("../components/Profile.vue")
 const AllPasswords = () => import("../components/AllPasswords.vue")
+const AddPassword = () => import("../components/AddPassword.vue")
 
 const routes =  [
 
@@ -38,6 +39,12 @@ const routes =  [
     name: "all-passwords",
     // lazy-loaded
     component: AllPasswords,
+  },
+
+  {
+    path: "/add",
+    name: "add-password",
+    component: AddPassword,
   },
   
 ];
