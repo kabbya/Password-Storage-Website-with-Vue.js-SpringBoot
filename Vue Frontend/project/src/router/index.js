@@ -6,6 +6,7 @@ import Register from "../components/Register.vue";
 const Profile = () => import("../components/Profile.vue")
 const AllPasswords = () => import("../components/AllPasswords.vue")
 const AddPassword = () => import("../components/AddPassword.vue")
+const UpdatePassword = () => import("../components/UpdatePassword.vue")
 
 const routes =  [
 
@@ -45,6 +46,12 @@ const routes =  [
     path: "/add",
     name: "add-password",
     component: AddPassword,
+  },
+
+  {
+    path: "/update/:id",
+    name: "password-details",
+    component: UpdatePassword
   },
   
 ];

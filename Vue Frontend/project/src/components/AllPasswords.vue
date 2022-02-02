@@ -37,7 +37,7 @@
       </div>
       
       <!-- Show Password on Click -->
-  
+    
       <div class="col-md-6">
         <div v-if="currentPassword">
           <h4>Password</h4>
@@ -64,9 +64,8 @@
           <div class="btn-toolbar mt-3">
            <button btn-sm @click="copy" >Copy Password</button>
            <router-link :to="'/update/' + this.currentPassword.pId" class="btn btn-primary mx-3">Edit</router-link>
-     
           </div>
-  
+        
         </div>
         <div v-else>
           <!-- <br />
