@@ -15,7 +15,7 @@
     
 
       <div class="form-group">
-        <label for="siteUserName">User Name</label>
+        <label for="siteUserName">User Name (Email only)</label>
             <input
               class="form-control"
               id="siteUserName"
