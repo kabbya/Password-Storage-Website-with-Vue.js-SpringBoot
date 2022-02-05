@@ -100,9 +100,11 @@ public class TestController {
 	public ResponseEntity<Password> updatePassword(@PathVariable("uid") long uid, @PathVariable("id") long id, @RequestBody Password password) {
 			
 			Password targetedPassword = passwordRepository.findById(id).get();
+			System.out.println(targetedPassword.getpId());
 			if(targetedPassword.getUser().getId() == uid) {
 				User currentUser = userRepository.getById(uid);
 				password.setUser(currentUser);
+				password.setpId(id);
 				return new ResponseEntity<>( passwordRepository.save(password) , HttpStatus.OK );
 			}else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
