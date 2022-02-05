@@ -1,5 +1,5 @@
 <template>
-  <div v-if="currentPassword" class="edit-form">
+  <div v-if="currentPassword" class="edit-form ">
     <h4>Password</h4>
     
     <form>
@@ -107,7 +107,9 @@ export default {
 
 <style>
 .edit-form {
+  background-color: #fdfdfd;
   max-width: 300px;
   margin: auto;
+  padding: 1rem;
 }
 </style>
